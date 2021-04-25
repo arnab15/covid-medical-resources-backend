@@ -36,7 +36,7 @@ UserSchema.methods.genarateAuthToken = function () {
       {
          _id: this._id,
          name: this.name,
-         picture: this.picture,
+         email: this.email,
       },
       process.env.JWT_SECREAT,
       { expiresIn: "7 days" }

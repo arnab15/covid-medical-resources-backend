@@ -6,6 +6,8 @@ const createError = require("http-errors");
 const cors = require("cors");
 require("./helpers/db_connection")();
 const authRouter = require("./routes/auth");
+const resourceRouter = require("./routes/resource");
+const requirmentRouter = require("./routes/requirment");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -17,6 +19,8 @@ app.get("/test", (req, res, next) => {
    });
 });
 app.use("/", authRouter);
+app.use("/", resourceRouter);
+app.use("/", requirmentRouter);
 app.use((req, res, next) => {
    next(createError(404, "Not found/Invalid url"));
 });
